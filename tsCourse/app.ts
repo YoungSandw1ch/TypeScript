@@ -71,14 +71,14 @@ if (page.load === Donwload.READY) {
   console.log("Page ready")
 }
 // Сделайте переменную, которая может принимать или строку или число.
-let optional: string | number;
-optional = 10;
-optional = "10";
+let union: string | number;
+union = 10;
+union = "10";
 // Сделайте переменную, которая может принимать только одно значение из двух 'enable' или 'disable'
-let orVariable: "enable" | "disable";
-orVariable = "disable";
-orVariable = "enable";
-// orVariable = "edwf"
+let literal: "enable" | "disable";
+literal = "disable";
+literal = "enable";
+// literal = "edwf"
 //================================
 function showMessage(message: string): void {
   console.log(message);
@@ -97,7 +97,7 @@ type PageType = {
   title: string;
   likes: number;
   accounts: string[];
-  status: string;
+  status: "open" | "close";
   details?: {
     createAt: string;
     updateAt: string;
