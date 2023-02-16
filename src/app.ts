@@ -28,8 +28,8 @@
 //================================
 let age: number;
 age = 50;
-let name: string;
-name = 'Max';
+let lastname: string;
+lastname = 'Max';
 let toggle: boolean;
 toggle = true;
 let empty: null;
