@@ -121,3 +121,5 @@ const page2: PageType = {
   accounts: ['Alex'],
   status: 'close',
 }
+
+//=================================
