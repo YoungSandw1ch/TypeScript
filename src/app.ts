@@ -117,3 +117,58 @@ const page2 = {
   accounts: ['Alex'],
   status: 'close',
 }
+
+//==========================
+class House {
+  private tenants: string[] = [];
+
+  constructor(public readonly type: string, protected street: string) { }
+  
+  addTenant(name: string) {
+    this.tenants.push(name);
+  }
+
+  showTenants(): void {
+    console.log('Tetants: ', this.tenants);
+  }
+
+  showType(): void {
+    console.log("Type of house: ", this.type);
+  }
+
+  showStreet(this: House): void {
+    console.log("Steet: ", this.street);
+  }
+}
+
+class StoneHouse extends House{
+  private generalAtHouse: string;
+  constructor(street: string, general: string) {
+    super('stone', street);
+    this.generalAtHouse = general;
+  }
+  
+  showTenants(): void { 
+    console.log("General: ", this.generalAtHouse);
+
+    super.showTenants();
+  }
+
+    showStreet(): void {
+    console.log("Steet of stoneHouse: ", this.street);
+  }
+}
+
+const newStoneHouse = new StoneHouse('Spoon Street', 'Peter');
+newStoneHouse.addTenant('Lois');
+
+console.log(newStoneHouse);
+
+const secondStoneHouse = new StoneHouse('Korpans street', 'Max');
+secondStoneHouse.addTenant('Mary');
+
+console.log(secondStoneHouse);
+
+secondStoneHouse.showStreet();
+secondStoneHouse.showTenants();
+secondStoneHouse.showType();
