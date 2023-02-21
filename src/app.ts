@@ -25,11 +25,14 @@
 // const person = createPerson('Alex');
 // console.log(person);
 
-//================================
+
+
+//=================================repeat
+
 let age: number;
 age = 50;
-let lastname: string;
-lastname = 'Max';
+let namePerson: string;
+namePerson = 'Max';
 let toggle: boolean;
 toggle = true;
 let empty: null;
@@ -37,53 +40,45 @@ empty = null;
 let notInitialize: undefined;
 notInitialize = undefined;
 let callback: (a: number) => number;
-callback = (a) => { return 100 + a };
-//================================
+callback = (a) => 100 + a;
+//=================================
 let anything: any;
-anything = -20;
-anything = 'Text';
+anything = "Text";
 anything = {};
-//================================
-let some:unknown;
-some = 'Text';
-
+//=================================
+let some: unknown;
+some = "Text";
 let str: string;
-
-if (typeof some === 'string') {
+if (typeof some === "string") {
   str = some;
 }
-//================================
+//=================================
 let person: [string, number];
 person = ['Max', 21];
-//================================
-// Опишите enum условие следующее, он должен отображать статус загрузки. Загружается (LOADING) и загружена (READY).
-enum Donwload { LOADING, READY };
+//=================================
+enum Status { LOADING, READY };
 
-const page = {
-  load: Donwload.LOADING,
+const service = {
+  process: Status.LOADING
 }
 
-if (page.load === Donwload.LOADING) {
-  console.log('page loading');
-}
-
-if (page.load === Donwload.READY) {
-  console.log("Page ready")
-}
-// Сделайте переменную, которая может принимать или строку или число.
+if (service.process === Status.LOADING) console.log("loading");
+//=================================
 let union: string | number;
-union = 10;
 union = "10";
-// Сделайте переменную, которая может принимать только одно значение из двух 'enable' или 'disable'
-let literal: "enable" | "disable";
-literal = "disable";
-literal = "enable";
-// literal = "edwf"
-//================================
+union = 10;
+// union = [];
+//=================================
+let literal: 'enable' | 'disable';
+
+literal = 'disable';
+literal = 'enable';
+// literal = "e2";
+//=================================
+// Укажите типы для следующих функций
 function showMessage(message: string): void {
   console.log(message);
 }
-
 
 function calc(num1: number, num2: number): number {
   return num1 + num2;
@@ -92,34 +87,33 @@ function calc(num1: number, num2: number): number {
 function customError(): never {
   throw new Error('Error');
 }
-//================================
-type PageType = {
+// Создайте свой тип данных на основе имеющихся данных.
+
+type Page = {
   title: string;
   likes: number;
   accounts: string[];
   status: "open" | "close";
   details?: {
-    createAt: string;
-    updateAt: string;
+    createAt: Date;
+    updateAt: Date;
   }
 }
 
-const page1: PageType = {
+const page1: Page = {
   title: 'The awesome page',
   likes: 100,
   accounts: ['Max', 'Anton', 'Nikita'],
   status: 'open',
   details: {
-    createAt: '2021-01-01',
-    updateAt: '2021-05-01',
+    createAt: new Date,
+    updateAt: new Date,
   }
 }
 
-const page2: PageType = {
+const page2 = {
   title: 'Python or Js',
   likes: 5,
   accounts: ['Alex'],
   status: 'close',
 }
-
-//=================================
