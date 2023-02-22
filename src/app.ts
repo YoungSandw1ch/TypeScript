@@ -176,30 +176,34 @@
 //=========================================
 
 abstract class House {
-  tenants: Person[] = [];
-  door: 'open' | 'close' = 'close';
+  private tenants: Person[] = []; //why private?
+  protected door: 'open' | 'close' = 'close'; //why protected?
 
-  constructor(public key: Key) {
+  constructor(protected key: Key) { //why protected?
     this.key = key;
   }
 
   comeIn(person: Person): void {
     if (this.door === 'open') {
       this.tenants.push(person);
+      console.log("Person inside")
     }
+    console.log("Door is close")
   }
 
   abstract openDoor(key: Key): void;
 }
 
 class MyHouse extends House{
-  openDoor(key: Key) {
-    console.log("this.key: ", this.key);
-    console.log("key: ", key);
-    if (this.key === key) {
+  openDoor(key: Key): void {
+    // console.log("this.key: ", this.key);
+    // console.log("key: ", key);
+    if (this.key.getSignature() === key.getSignature()) {
       this.door = 'open';
+      console.log("Door open")
     } else {
       this.door = 'close';
+      console.log("Door close")
     }
   }
 }
@@ -211,7 +215,7 @@ class Key {
     this.signature = Math.random();
   }
 
-  getSignature() {
+  getSignature(): number {
     return this.signature;
   }
 }
@@ -221,7 +225,7 @@ class Person {
     this.key = key;
   }
 
-  getKey() {
+  getKey(): Key {
     return this.key;
   }
 }
