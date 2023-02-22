@@ -217,21 +217,39 @@ class Key {
 }
 
 class Person {
-  constructor(public key: Key) {
+  constructor(private key: Key) {
     this.key = key;
+  }
+
+  getKey() {
+    return this.key;
   }
 }
 
-const key1 = new Key();
-const key2 = new Key();
-const tenant1 = new Person(key1);
-const tenant2 = new Person(key1);
-const house1 = new MyHouse(key1);
+const key_1 = new Key();
+console.log("key_1: ", key_1);
 
-house1.openDoor(key1);
-house1.comeIn(tenant1);
+const person_1 = new Person(key_1);
+console.log("person_1: ", person_1)
 
-house1.openDoor(key1);
-house1.comeIn(tenant2);
+const house = new MyHouse(key_1);
+console.log("House: ", house);
 
-console.log(house1);
+house.openDoor(person_1.getKey());
+house.comeIn(person_1);
+
+console.log("House: ", house);
+
+// const key1 = new Key();
+// const key2 = new Key();
+// const tenant1 = new Person(key1);
+// const tenant2 = new Person(key1);
+// const house1 = new MyHouse(key1);
+
+// house1.openDoor(key1);
+// house1.comeIn(tenant1);
+
+// house1.openDoor(key1);
+// house1.comeIn(tenant2);
+
+// console.log(house1);

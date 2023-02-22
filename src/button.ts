@@ -3,6 +3,6 @@ const onBtnClick = () => {
   console.log("you click on button")
 };
 
-console.log(button);
+// console.log(button);
 
 button.addEventListener('click', onBtnClick);
