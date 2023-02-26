@@ -176,7 +176,7 @@
 //=========================================
 
 abstract class House {
-  private tenants: Person[] = []; //why private?
+  private tenants: Person[] = []; //why private? Nobody might push in tenants
   protected door: 'open' | 'close' = 'close'; //why protected?
 
   constructor(protected key: Key) { //why protected?
@@ -244,16 +244,15 @@ house.comeIn(person_1);
 
 console.log("House: ", house);
 
-// const key1 = new Key();
-// const key2 = new Key();
-// const tenant1 = new Person(key1);
-// const tenant2 = new Person(key1);
-// const house1 = new MyHouse(key1);
+//===========================overload function========
 
-// house1.openDoor(key1);
-// house1.comeIn(tenant1);
-
-// house1.openDoor(key1);
-// house1.comeIn(tenant2);
-
-// console.log(house1);
+function combine(a: number, b: string): string;
+function combine(a: string, b: number): string;
+function combine(a: number, b: number): number;
+function combine(a: string, b: string): string;
+function combine(a: string | number, b: string | number) {
+  if (typeof a === 'string' || typeof b === "string") {
+    return a.toString() + b.toString();
+  }
+  return a + b;
+}
