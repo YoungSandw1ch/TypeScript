@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import { InputValueProvider } from './context/InputValueContext';
+// import { InputValueProvider } from './context/InputValueContext';
 // import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
@@ -10,9 +10,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <InputValueProvider>
       <App />
-    </InputValueProvider>
   </React.StrictMode>
 );
 
