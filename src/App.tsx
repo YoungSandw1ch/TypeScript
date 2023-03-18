@@ -78,4 +78,30 @@ console.log(links.vk);
 // const neo = new Neo('de',23);
 // neo.getPass();
 
+//===============================================================
 
+interface IColor {
+  name: string;
+  color: string;
+}
+
+function CarPainting(config: IColor) {
+  return function (constructor: any) {
+    const current = new constructor();
+    constructor.prototype.getName = () => {
+      console.log(config.name);
+    };
+
+    constructor.prototype.fullName = `${current.brand} ${config.color} car`;
+  }
+}
+
+@CarPainting({name: 'blue', color: 'blue'})
+class Auto {
+  public brand = "Audi"
+}
+
+const car1 = new Auto();
+console.log("car1: ", car1, typeof car1);
+
+// console.log(car1.getName())
