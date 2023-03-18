@@ -23,3 +23,59 @@ export default function App() {
     </>
   );
 }
+
+enum Direction {
+  up,
+  down,
+  left,
+  right,
+}
+
+console.log(Direction.up);
+console.log(Direction[2]);
+
+enum links {
+  vk = "https://vk.com/",
+  vk1 = "https://vk1.com/",
+  vk2 = "https://vk2.com/",
+}
+
+console.log(links.vk);
+
+// function greet(name: string, ...skills: string[]) {
+//   console.log(`${name} ${skills.join()}`);
+// }
+
+// greet('Mike', 'js', "ts", 'REACT');
+
+// const arr: string[] = ["1", '2', '3'];
+// console.log(arr.join(","))
+
+// class User {
+//   static secret = 12345;
+
+//   constructor(public face: string, public age: (string | number)) { }
+  
+//   getPass():void {
+//     console.log(`${this.face}${User.secret}`)
+//   }
+// }
+
+// // const user1 = new User('Neo', 23);
+
+// // console.log(user1);
+// // user1.getPass();
+
+// class Neo extends User {
+//   public face: string = "sersus";
+  
+//   constructor(age: string) {
+//     super(face, age);
+//     this.age,
+//   }
+// }
+
+// const neo = new Neo('de',23);
+// neo.getPass();
+
+
